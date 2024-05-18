@@ -1,0 +1,19 @@
+﻿  Car.cpp
+  main.cpp
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(14,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(15,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(57,34): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(57,34): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(57,42): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(57,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(58,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(132,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\Car.cpp(133,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\main.cpp(71,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\main.cpp(71,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\main.cpp(74,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\main.cpp(74,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Wall.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  CAR.vcxproj -> C:\Users\Alex\Documents\GitHub\Fork\ARTFX3Year\CAR Game\CAR\x64\Debug\CAR.exe
