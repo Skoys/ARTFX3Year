@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\CAR Game\\PONG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|E:\\CAR Game\\PONG\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|E:\\CAR Game\\PONG\\Car.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|solutionrelative:Car.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|E:\\CAR Game\\PONG\\Car.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|solutionrelative:Car.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|E:\\CAR Game\\PONG\\Wall.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|solutionrelative:Wall.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|E:\\CAR Game\\PONG\\Wall.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C65DC95D-6601-4C14-B1FE-37B3AC7FFE92}|CAR.vcxproj|solutionrelative:Wall.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Car.h",
+              "DocumentMoniker": "E:\\CAR Game\\PONG\\Car.h",
+              "RelativeDocumentMoniker": "Car.h",
+              "ToolTip": "E:\\CAR Game\\PONG\\Car.h",
+              "RelativeToolTip": "Car.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-30T20:09:16.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Car.cpp",
+              "DocumentMoniker": "E:\\CAR Game\\PONG\\Car.cpp",
+              "RelativeDocumentMoniker": "Car.cpp",
+              "ToolTip": "E:\\CAR Game\\PONG\\Car.cpp",
+              "RelativeToolTip": "Car.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T21:34:04.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "E:\\CAR Game\\PONG\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "E:\\CAR Game\\PONG\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAADwvxkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T22:39:49.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Wall.h",
+              "DocumentMoniker": "E:\\CAR Game\\PONG\\Wall.h",
+              "RelativeDocumentMoniker": "Wall.h",
+              "ToolTip": "E:\\CAR Game\\PONG\\Wall.h",
+              "RelativeToolTip": "Wall.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-02T18:37:54.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Wall.cpp",
+              "DocumentMoniker": "E:\\CAR Game\\PONG\\Wall.cpp",
+              "RelativeDocumentMoniker": "Wall.cpp",
+              "ToolTip": "E:\\CAR Game\\PONG\\Wall.cpp",
+              "RelativeToolTip": "Wall.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-02T18:37:32.814Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

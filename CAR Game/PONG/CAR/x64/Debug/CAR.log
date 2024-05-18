@@ -1,0 +1,6 @@
+﻿  main.cpp
+E:\CAR Game\PONG\main.cpp(71,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\CAR Game\PONG\main.cpp(71,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\CAR Game\PONG\main.cpp(74,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\CAR Game\PONG\main.cpp(74,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  CAR.vcxproj -> E:\CAR Game\PONG\x64\Debug\CAR.exe
