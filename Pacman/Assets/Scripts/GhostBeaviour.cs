@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -8,25 +9,32 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class GhostBehaviour : MonoBehaviour
 {
-    [SerializeField]private MapManager _mapManager;
-    [SerializeField] private Material _gohstMaterial;
+    [SerializeField] private MapManager _mapManager;
+    [SerializeField] private Material _ghostMaterial;
+    public Color _startingColor;
 
+    [SerializeField] private int _chanceToFollow;
     [SerializeField] private float _speed;
     [SerializeField] private float _time = 0;
+    [SerializeField] private float _timeout = 0;
+    [SerializeField] private int _numberOnMap;
+
+    public float _timeToSpawn;
+    [SerializeField] private bool _hasSpawned;
 
     public Vector2 currentTile = Vector2.zero;
     [SerializeField] private Vector2 _nextTile = Vector2.zero;
 
-    [SerializeField] private string _turnDirection = "west";
     [SerializeField] private string _facingDirection  = "west";
 
-    public bool gameEnded = false;
+    public string currentState = "wait";
 
     void Start()
     {
 
+        _time -= Time.realtimeSinceStartup;
+        _ghostMaterial.SetColor("_EmissionColor", _startingColor);
         _nextTile = currentTile;
-        NextDirection(_facingDirection);
 
     }
 
@@ -34,29 +42,64 @@ public class GhostBehaviour : MonoBehaviour
     void Update()
     {
 
-        switch (gameEnded)
+        switch (currentState)
         {
-            case true:
 
-                GameEnded(); 
+            case "spawn":
+
+                Spawn();
+                break;
+
+            case "move":
+
+                GhostMovement();
+                break;
+
+            case "invincible":
+
+                GhostMovement();
+                PlayerInvincibility();
+                break;
+
+            case "killed":
+
+                Iskilled();
+                break;
+
+            case "End":
+
+                GameEnded();
                 break;
 
             default:
-
-                GhostMovement(); 
                 break;
         }
-        
+    }
+
+    private void Spawn()
+    {
+
+        if (Time.realtimeSinceStartup >= _timeToSpawn)
+        {
+
+            currentState = "move";
+            Vector2 tempPosition = PacmanFunctions.GetPositionOnMap(_mapManager.mapGrid, 9);
+            transform.position = new Vector3(tempPosition.x, tempPosition.y);
+            currentTile = tempPosition;
+            _nextTile = tempPosition;
+
+        }
     }
 
     private void GhostMovement()
     {
+
         if (currentTile != _nextTile)
         {
 
             transform.position += new Vector3(
-                (_speed * Time.deltaTime) * SpeedCalculation(_nextTile.x - transform.position.x),
-                (_speed * Time.deltaTime) * SpeedCalculation(_nextTile.y - transform.position.y)
+                (_speed * Time.deltaTime) * PacmanFunctions.SpeedCalculation(_nextTile.x - transform.position.x),
+                (_speed * Time.deltaTime) * PacmanFunctions.SpeedCalculation(_nextTile.y - transform.position.y)
                 );
 
             if (Vector3.Distance(transform.localPosition, new Vector3(currentTile.x, currentTile.y)) >= 1)
@@ -77,59 +120,65 @@ public class GhostBehaviour : MonoBehaviour
 
     private void NextMove()
     {
+        Vector2 playerPosition = _mapManager.playerPosition;
 
-        _nextTile = _mapManager.IsNextTileFree(currentTile, _turnDirection);
-
-        if (_nextTile != Vector2.zero)
+        Vector2 distances;
+        if (currentState == "invincible") 
         {
 
-            _facingDirection = _turnDirection;
-            return;
+            PlayerInvincibility();
+            distances = new Vector2(currentTile.x - playerPosition.x, currentTile.y - playerPosition.y);
+
+        }
+        else 
+        {
+
+            distances = new Vector2(playerPosition.x - currentTile.x, playerPosition.y - currentTile.y);
 
         }
 
-        _nextTile = _mapManager.IsNextTileFree(currentTile, _facingDirection);
-
-        if (_nextTile != Vector2.zero)
-        {
-
-            return;
-
-        }
-
-        _nextTile = currentTile;
+        Movement(distances, _chanceToFollow);
 
     }
 
-    private void NextDirection(string direction)
+    private void Movement(Vector2 distances, int luck)
     {
 
-        //Debug.Log("Turn Direction");
-        if (direction != _turnDirection)
+        List<string> operations;
+        operations = PacmanFunctions.GetOperationsinOrder(distances);
+
+        string newDirection;
+
+        System.Random random = new System.Random();
+        if (random.Next(0, 100) > luck)
+        {
+            operations.Add(operations[0]);
+            operations.RemoveAt(0);
+
+        }
+
+        operations = PacmanFunctions.PutOriginLast(operations, _facingDirection);
+
+        while (operations.Count > 0)
         {
 
-            Vector2 isfreeTile = _mapManager.IsNextTileFree(_nextTile, direction);
+            newDirection = operations[0];
+            operations.RemoveAt(0);
 
-            if (isfreeTile != Vector2.zero)
+            _nextTile = _mapManager.IsNextTileFree(currentTile, newDirection, transform, false);
+
+            if (_nextTile != Vector2.zero)
             {
 
-                _turnDirection = direction;
+                _facingDirection = newDirection;
+                operations.Clear();
+                return;
 
             }
         }
-
     }
 
-    private int SpeedCalculation(float distance)
-    {
-
-        if (distance > 0) { return 1; }
-        if (distance < 0) { return -1; }
-        return 0;
-
-    }
-
-    public void GameEnded()
+    private void PlayerInvincibility()
     {
 
         switch (_time + 0.5f < Time.realtimeSinceStartup)
@@ -137,25 +186,80 @@ public class GhostBehaviour : MonoBehaviour
 
             case true:
 
-                if (_gohstMaterial.color == Color.white)
+                if (_ghostMaterial.GetColor("_EmissionColor") == Color.blue)
                 {
 
-                    _gohstMaterial.color = Color.red;
+                    _ghostMaterial.SetColor("_EmissionColor", Color.white);
 
                 }
                 else
                 {
 
-                    _gohstMaterial.color = Color.white;
+                    _ghostMaterial.SetColor("_EmissionColor", Color.blue);
 
                 }
-                //_time = Time.realtimeSinceStartup;
+                _time = Time.realtimeSinceStartup;
                 break;
 
             default:
                 break;
 
         }
+    }
+
+    public void FinishedInvincibility()
+    {
+
+        _ghostMaterial.SetColor("_EmissionColor", _startingColor) ;
+        currentState = "move";
+
+    }
+
+    public void Iskilled()
+    {
+
+        if (currentTile != _nextTile)
+        {
+
+            transform.position += new Vector3(
+                (_speed * Time.deltaTime * 2) * PacmanFunctions.SpeedCalculation(_nextTile.x - transform.position.x),
+                (_speed * Time.deltaTime * 2) * PacmanFunctions.SpeedCalculation(_nextTile.y - transform.position.y)
+                );
+
+            if (Vector3.Distance(transform.localPosition, new Vector3(currentTile.x, currentTile.y)) >= 1)
+            {
+
+                currentTile = _nextTile;
+                transform.position = new Vector3(currentTile.x, currentTile.y);
+
+            }
+        }
+        else
+        {
+
+            Vector2 spawn = PacmanFunctions.GetPositionOnMap(_mapManager.mapGrid, 9);
+            Vector2 distances = new Vector2(spawn.x - currentTile.x, spawn.y - currentTile.y);
+            if(Vector2.Distance(spawn, currentTile) == 0)
+            {
+
+                _ghostMaterial.SetColor("_EmissionColor", Color.black);
+                currentState = "wait";
+                Invoke(nameof(FinishedInvincibility), _timeout);
+
+            }
+            else
+            {
+
+                Movement(distances, 100);
+
+            }
+        }
+    }
+
+    public void GameEnded()
+    {
+
+        _ghostMaterial.SetColor("_EmissionColor", _startingColor);
 
     }
 
@@ -168,5 +272,4 @@ public class GhostBehaviour : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(_nextTile.x, _nextTile.y), 1);
 
     }
-    
 }
