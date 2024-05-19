@@ -1,2 +1,19 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (PONG.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-LINK : fatal error LNK1104: cannot open file 'raylib.lib'
+﻿  Car.cpp
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(14,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(15,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(57,34): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(57,34): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(57,42): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(57,42): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(58,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(132,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\Car.cpp(133,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\main.cpp(71,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\main.cpp(71,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\main.cpp(74,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\main.cpp(74,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Wall.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  CAR.vcxproj -> C:\Users\royer\GITFORK\ARTFX3Year\CAR Game\x64\Debug\CAR.exe
